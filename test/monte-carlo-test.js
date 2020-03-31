@@ -16,9 +16,7 @@ describe('Monte Carlo method', () => {
 
     it('Random number', () => {
       let result = random(a,b)
-      result.should.be.a('number');
-      result.should.be.gt(a-1);
-      result.should.be.lt(b+1);
+      result.should.be.a('number').be.gt(a-1).and.be.lt(b+1);
     });
   });
 });

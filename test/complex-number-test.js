@@ -10,7 +10,7 @@
 "use strict"
 
 describe('Complex Number Class', () => {
-  describe('Atributes', () => {
+  describe('Properties', () => {
     let complexNumber;
 
     beforeEach(() => {
@@ -18,20 +18,17 @@ describe('Complex Number Class', () => {
     });
 
     it('Returns the real part', () => {
-      complexNumber.should.have.property('real');
-      complexNumber.getReal().should.be.a('number');
+      complexNumber.should.have.property('real').that.is.a('number');
       complexNumber.getReal().should.equal(10);
     });
 
     it('Returns the imaginary part', () => {
-      complexNumber.should.have.property('imaginary');
-      complexNumber.getImaginary().should.be.a('number');
+      complexNumber.should.have.property('imaginary').that.is.a('number');
       complexNumber.getImaginary().should.equal(20);
     });
 
     it('Returns if is part of the Mandelbrot Set', () => {
-      complexNumber.should.have.property('partOfManbelbrotSet');
-      complexNumber.getPartOfManbelbrotSet().should.be.a('boolean');
+      complexNumber.should.have.property('partOfManbelbrotSet').that.is.a('boolean');
       complexNumber.getPartOfManbelbrotSet().should.equal(true);
     });
 
@@ -41,21 +38,20 @@ describe('Complex Number Class', () => {
     });
 
     it('Returns the color', () => {
-      complexNumber.should.have.property('color');
-      complexNumber.getColor().should.be.a('string');
+      complexNumber.should.have.property('color').that.is.a('string');
       complexNumber.getColor().should.equal('rgb(0,0,0)');
     });
 
     it('Sets the color', () => {
-      complexNumber.setPartOfManbelbrotSet(false);
-      complexNumber.getPartOfManbelbrotSet().should.equal(false);
+      complexNumber.setColor('green');
+      complexNumber.getColor().should.equal('green');
     });
   });
 
-  describe('Operations', () => {
+  describe('Methods', () => {
     let numOne, numTwo, numThree, solutionAdd, solutionSquare;
 
-    beforeEach(()=>{
+    before(()=>{
       numOne = new ComplexNumber(10, 20);
       numTwo = new ComplexNumber(30, 40);
       numThree = new ComplexNumber(3, 4);
@@ -69,13 +65,13 @@ describe('Complex Number Class', () => {
       result.getImaginary().should.equal(solutionAdd.getImaginary());
     });
 
-    it('Square a complex number correctly', ()=>{
+    it('Squares a complex number correctly', ()=>{
       let result = ComplexNumber.square(numOne);
       result.getReal().should.equal(solutionSquare.getReal());
       result.getImaginary().should.equal(solutionSquare.getImaginary());
     });
 
-    it('Absolute value of a complex number correctly', ()=>{
+    it('Calculates the absolute value of a complex number correctly', ()=>{
       let result = ComplexNumber.absoluteValue(numThree);
       result.should.be.a('number');
       result.should.equal(5);

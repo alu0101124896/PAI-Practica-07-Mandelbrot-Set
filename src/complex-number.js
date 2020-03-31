@@ -27,6 +27,7 @@ class ComplexNumber {
     this.real = Number(real);
     this.imaginary = Number(imaginary);
     this.partOfManbelbrotSet = true;
+    this.color = 'rgb(0,0,0)';
   }
 
   /**
@@ -62,6 +63,22 @@ class ComplexNumber {
    * @memberof ComplexNumber
    */
   setPartOfManbelbrotSet(isPart) { this.partOfManbelbrotSet = isPart; };
+
+  /**
+   * @description Getter function of the artibute that stores the color
+   *
+   * @returns {string} Returns a string with the rgb code
+   * @memberof ComplexNumber
+   */
+  getColor() { return this.color; }
+
+  /**
+   * @description Setter function of the attribute that stores the color
+   *
+   * @param {string} color - string with the rgb code to be stored
+   * @memberof ComplexNumber
+   */
+  setColor(color) { this.color = color; }
 
   /**
    * @description Function that adds two given complex numbers together
@@ -104,8 +121,3 @@ class ComplexNumber {
     return Math.sqrt((complexNumber.real * complexNumber.real) + (complexNumber.imaginary * complexNumber.imaginary));
   }
 }
-
-// module.exports = ComplexNumber;
-// export const addTest = add;
-// export const squareTest = square;
-// export const absoluteValueTest = absoluteValue;

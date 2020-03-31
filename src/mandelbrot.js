@@ -9,13 +9,34 @@
 
 "use strict"
 
-const REAL_MIN = -2.5;
-const REAL_MAX = 1.5;
-const IMAGINARY_MIN = -1.5;
-const IMAGINARY_MAX = 1.5;
+const REAL_MIN = -2.5; // Minimum value of the real axes
+const REAL_MAX = 1.5; // Maximum value of the real axes
+const IMAGINARY_MIN = -1.5; // Minimum value of the imaginary axes
+const IMAGINARY_MAX = 1.5; // Maximum value of the imaginary axes
 
-const UMBRAL = 2.0;
+const UMBRAL = 2.0; // Umbral value for every pixel of being part of the Mandelbrot Set
 
+/**
+ * @description Function that gives a color to every pixel depending on the number of iterations that kept inside the umbral value
+ *
+ * @param {number} iterations - Number of iterations that kept inside the umbral value
+ * @param {number} maxIterations - Maximum number of iterations
+ * @param {array} complexNumbers - Array of all the pixels of the canvas stored as complex numbers
+ * @param {*} CONTEXT - Canvas context
+ */
+function drawPixel(iterations, maxIterations, complexNumber, CONTEXT) {
+  if (!complexNumber.getPartOfManbelbrotSet()) {
+    complexNumber.setColor('rgb(0,' + (Math.floor(250 * (Math.log(iterations) / Math.log(maxIterations - 1.0))) + 5) + ',0)');
+  }
+  CONTEXT.fillStyle = complexNumber.getColor();
+  CONTEXT.fillRect(complexNumber.real, complexNumber.imaginary, 1, 1);
+}
+
+/**
+ * @description Function that generates a complex number with every pixel of the canvas
+ *
+ * @returns {array} Returns an array with all generated complex numbers
+ */
 function generateComplexNumbers(CANVAS) {
   let complexNumbers = [];
   for (let widthIterator = 0; widthIterator < CANVAS.width; widthIterator++) {
@@ -26,15 +47,14 @@ function generateComplexNumbers(CANVAS) {
   return complexNumbers;
 }
 
-function drawPixel(complexNumber, iterations, maxIterations, CONTEXT) {
-  if (complexNumber.getPartOfManbelbrotSet()) {
-    CONTEXT.fillStyle = 'black';
-  } else {
-    CONTEXT.fillStyle = 'rgb(0,' + Math.floor(255 * (iterations + 1) / maxIterations) + ',0)';
-  }
-  CONTEXT.fillRect(complexNumber.real, complexNumber.imaginary, 1, 1);
-}
-
+/**
+ * @description Function that iterates every pixel to see if it is part of the Mandelbrot Set
+ *
+ * @param {number} maxIterations - Maximum number of iterations
+ * @param {array} complexNumbers - Array of all the pixels of the canvas stored as complex numbers
+ * @param {*} CONTEXT - Canvas context
+ * @param {*} CANVAS - Canvas
+ */
 function mandelbrotSet(maxIterations, complexNumbers, CONTEXT, CANVAS) {
   complexNumbers.forEach(complexNumber => {
     let iterator = 0;
@@ -50,7 +70,7 @@ function mandelbrotSet(maxIterations, complexNumbers, CONTEXT, CANVAS) {
       actualComplexNumber = ComplexNumber.add(ComplexNumber.square(actualComplexNumber), thisComplexNumber);
       iterator++;
     }
-    drawPixel(complexNumber, iterator, maxIterations, CONTEXT);
+    drawPixel(iterator, maxIterations, complexNumber, CONTEXT);
   });
 }
 
@@ -65,10 +85,10 @@ function main() {
     CANVAS.height = window.innerHeight - 175;
 
     debugger;
-    let maxIterations = prompt("Enter number of iterations:", "20");
+    let maxIterations = prompt("Enter number of iterations for the Mandelbrot Set:", "50");
     let complexNumbers = generateComplexNumbers(CANVAS);
     mandelbrotSet(maxIterations, complexNumbers, CONTEXT, CANVAS);
+    let numOfPoints = prompt("Enter number of points for Monte Carlo method:", "1000");
+    monteCarlo(numOfPoints, complexNumbers, REAL_MIN, REAL_MAX, IMAGINARY_MIN, IMAGINARY_MAX, CONTEXT, CANVAS);
   }
 }
-
-main();

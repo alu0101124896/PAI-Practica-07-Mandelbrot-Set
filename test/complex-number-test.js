@@ -9,8 +9,6 @@
 
 "use strict"
 
-const should = chai.should();
-
 describe('Complex Number Class', () => {
   describe('Atributes', () => {
     let complexNumber;

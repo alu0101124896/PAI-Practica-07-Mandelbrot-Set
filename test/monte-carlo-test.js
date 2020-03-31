@@ -9,8 +9,6 @@
 
 "use strict"
 
-const should = chai.should();
-
 describe('Monte Carlo method', () => {
   describe('Functions', () => {
     let a = 1;
@@ -19,7 +17,8 @@ describe('Monte Carlo method', () => {
     it('Random number', () => {
       let result = random(a,b)
       result.should.be.a('number');
-      // result.should.be.ge(a);
+      result.should.be.gt(a-1);
+      result.should.be.lt(b+1);
     });
   });
 });

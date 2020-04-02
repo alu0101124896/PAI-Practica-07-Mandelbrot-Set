@@ -7,7 +7,7 @@
  * @description This program implements a complex number class for the Mandelbrot Set Visualization. More info about it here: https://en.wikipedia.org/wiki/mandelbrot_set
  */
 
-"use strict"
+"use strict";
 
 /**
  * @description Class representing a complex number

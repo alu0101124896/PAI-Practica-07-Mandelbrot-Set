@@ -7,7 +7,7 @@
  * @description This program implements the Mandelbrot Set Visualization. More info about it here: https://en.wikipedia.org/wiki/mandelbrot_set
  */
 
-"use strict"
+"use strict";
 
 const REAL_MIN = -2.5; // Minimum value of the real axes
 const REAL_MAX = 1.5; // Maximum value of the real axes

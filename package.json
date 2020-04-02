@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node web-server/app.js"
   },
-  "author": "Kevin Chisholm",
+  "author": "Sergio Tabares",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",

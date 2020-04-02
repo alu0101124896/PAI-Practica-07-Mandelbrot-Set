@@ -7,7 +7,7 @@
  * @description This program implements the Monte Carlo method to calculate the area of the Mandelbrot Set. More info about it here: https://en.wikipedia.org/wiki/Monte_Carlo_method
  */
 
-"use strict"
+"use strict";
 
 const ROUNDING_VALUE = 1000000;
 

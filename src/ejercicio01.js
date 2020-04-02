@@ -1,12 +1,12 @@
 /**
- * @file tabares-sergio-ejercicio01.html
+ * @file ejercicio01.js
  * @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
  * @since Spring 2020
  * @summary University of La Laguna - Computer Science - Interactive Aplication Programing
  * @description This program implements a function to draw multiple polyhedra
  */
 
-"use strict"
+"use strict";
 
 /**
  * @description Function that draws a pyramid
@@ -125,17 +125,17 @@ function drawCilinder(xMin, xMax, yMin, yMax, CONTEXT) {
  * @param {*} CANVAS - Canvas
  */
 function drawPolyhedra(CONTEXT, CANVAS) {
-  let firstColum = 0;
-  let secondColunm = CANVAS.width / 2;
-  let firstRow = 0;
-  let secondRow = CANVAS.height / 3;
-  let thirdRow = secondRow * 2;
+  const FIRST_COLUMN = 0;
+  const SECOND_COLUMN = CANVAS.width / 2;
+  const FIRST_ROW = 0;
+  const SECOND_ROW = CANVAS.height / 3;
+  const THIRD_ROW = SECOND_ROW * 2;
 
-  drawPyramid(firstColum, secondColunm, firstRow, secondRow, CONTEXT);
-  drawOctahedron(secondColunm, CANVAS.width, firstRow, secondRow, CONTEXT);
-  drawSphere(firstColum, secondColunm, secondRow, thirdRow, CONTEXT);
-  drawTruncatedCone(secondColunm, CANVAS.width, secondRow, thirdRow, CONTEXT);
-  drawCilinder(firstColum, secondColunm, thirdRow, CANVAS.height, CONTEXT);
+  drawPyramid(FIRST_COLUMN, SECOND_COLUMN, FIRST_ROW, SECOND_ROW, CONTEXT);
+  drawOctahedron(SECOND_COLUMN, CANVAS.width, FIRST_ROW, SECOND_ROW, CONTEXT);
+  drawSphere(FIRST_COLUMN, SECOND_COLUMN, SECOND_ROW, THIRD_ROW, CONTEXT);
+  drawTruncatedCone(SECOND_COLUMN, CANVAS.width, SECOND_ROW, THIRD_ROW, CONTEXT);
+  drawCilinder(FIRST_COLUMN, SECOND_COLUMN, THIRD_ROW, CANVAS.height, CONTEXT);
 }
 
 /**

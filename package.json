@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Practica 07 Mandelbrot Set alu0101124896",
   "scripts": {
-    "start": "node web-server/app.js"
+    "start": "node web-server/app.js",
+    "test": "mocha",
+    "test:watch": "mocha --watch"
   },
   "author": "Sergio Tabares",
   "license": "MIT",

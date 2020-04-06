@@ -7,7 +7,7 @@
  * @description This program implements the tests for the complex number class
  */
 
-"use strict"
+"use strict";
 
 describe('Complex Number Class', () => {
   describe('Properties', () => {

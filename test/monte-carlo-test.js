@@ -7,7 +7,7 @@
  * @description This program implements the tests for the Monte Carlo method
  */
 
-"use strict"
+"use strict";
 
 describe('Monte Carlo method', () => {
   describe('Functions', () => {

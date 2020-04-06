@@ -4,8 +4,8 @@
   "description": "Practica 07 Mandelbrot Set alu0101124896",
   "scripts": {
     "start": "node web-server/app.js",
-    "test": "mocha",
-    "test:watch": "mocha --watch"
+    "test": "mocha --require @babel/register",
+    "test:watch": "mocha --watch --require @babel/register"
   },
   "author": "Sergio Tabares",
   "license": "MIT",
@@ -18,6 +18,11 @@
     "url": "https://github.com/ULL-ESIT-INF-PAI-2019-2020/practica-07-mandelbrot-alu0101124896.git"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
     "babel": "^6.23.0",
     "chai": "^4.2.0",
     "mocha": "^7.1.1"

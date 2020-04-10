@@ -10,6 +10,8 @@ APP.set('port', 8080);
 APP.use(EXPRESS.static(PATH.join(__dirname, '../www')));
 APP.use(EXPRESS.static(PATH.join(__dirname, '../src')));
 APP.use(EXPRESS.static(PATH.join(__dirname, '../test')));
+APP.use(EXPRESS.static(PATH.join(__dirname, '../doc-mandelbrot')));
+APP.use(EXPRESS.static(PATH.join(__dirname, '../doc-ejercicio01')));
 
 // Listen for requests
 const SERVER = APP.listen(APP.get('port'), '0.0.0.0', function () {
